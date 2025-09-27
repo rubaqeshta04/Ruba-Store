@@ -1,11 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ruba Store</title>
-</head>
-<body>
-    
-</body>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "lime-custom": "#FAE268",
+              "green-custom": "#2e7d32",
+              "lime-light": "#F9FFD7",
+              "faq-background": "#fcffec",
+            },
+            fontFamily: {
+              montserrat: ["Montserrat", "sans-serif"],
+              roboto: ["Roboto", "sans-serif"],
+              poppins: ["Poppins", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <nav
+      class="flex w-full h-[60px] bg-[#fff] items-center justify-between p-10 gap-20"
+    >
+      <h1 class="text-center font-bold text-xl font-montserrat">Ruba Store</h1>
+      <ul class="flex items-start justify-between gap-5">
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Best Products</a></li>
+        <li><a href="#">Favorites</a></li>
+        <li><a href="#">About Us</a></li>
+      </ul>
+      <div class="flex justify-between w-[160px]">
+        <button class="w-10">
+          <img src="../images/cart-icon.png" alt="" />
+        </button>
+        <button class="flex justify-between items-center">
+          Log out
+          <img src="../images/arrow.png" alt="" class="w-10 rotate-90" />
+        </button>
+      </div>
+    </nav>
+    <div class="p-10 min-h-screen flex flex-col items-center">
+      <div class="text-center mb-6">
+        <h3 class="font-bold text-5xl pb-3">Wishlist</h3>
+      </div>
+      <div class="flex items-center justify-start w-full gap-5">
+        <div
+          class="flex flex-col items-start justify-between pb-5 basis-[250px] min-h-[400px] border-2"
+        >
+          <div class="overflow-hidden h-[350px] w-full">
+            <img
+              src="../images/bag2.jpg"
+              alt="bag"
+              class="h-[350px] w-full object-cover"
+            />
+          </div>
+
+          <div class="flex items-end justify-between w-full px-5">
+            <div>
+              <p class="font-semibold text-lg pb-3 pt-5">The Bigger Carry-On</p>
+              <p class="text-sm font-medium text-red-600 line-through">$495</p>
+              <p class="text-lg font-medium text-green-600">$395</p>
+            </div>
+
+            <button class="favoriteBtn focus:outline-none">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                class="heartIcon w-6 h-6 text-gray-400 transition-colors duration-300"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0
+                116.364 6.364L12 21.364l-7.682-7.682a4.5 4.5 0 010-6.364z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div
+          class="flex flex-col items-start justify-between pb-5 basis-[250px] min-h-[400px] border-2"
+        >
+          <div class="overflow-hidden h-[350px] w-full">
+            <img
+              src="../images/bag2.jpg"
+              alt="bag"
+              class="h-[350px] w-full object-cover"
+            />
+          </div>
+
+          <div class="flex items-end justify-between w-full px-5">
+            <div>
+              <p class="font-semibold text-lg pb-3 pt-5">The Bigger Carry-On</p>
+              <p class="text-sm font-medium text-red-600 line-through">$495</p>
+              <p class="text-lg font-medium text-green-600">$395</p>
+            </div>
+
+            <button class="favoriteBtn focus:outline-none">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                class="heartIcon w-6 h-6 text-gray-400 transition-colors duration-300"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0
+                116.364 6.364L12 21.364l-7.682-7.682a4.5 4.5 0 010-6.364z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="mt-[50px]">
+      <div
+        class="bg-[#fbcfe8] flex justify-between items-center flex-col py-[100px]"
+      >
+        <p class="font-semibold text-3xl pt-3 pb-5">
+          Subscribe to get offers in your inbox
+        </p>
+        <p class="font-normal text-md pb-5 text-gray-500">
+          Lorem ipsum dolor sit amet, adipiscing elit sed do eiusmod condimentum
+        </p>
+        <ul class="flex items-start justify-between gap-5">
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Best Products</a></li>
+          <li><a href="#">Favorites</a></li>
+          <li><a href="#">About Us</a></li>
+        </ul>
+      </div>
+      <div
+        class="bg-black h-[70px] text-[#fff] flex items-center justify-center"
+      >
+        <p>Copyright © 2025 T-Shirts Store | Powered by Ruba Qeshta</p>
+      </div>
+    </footer>
+  </body>
 </html>
