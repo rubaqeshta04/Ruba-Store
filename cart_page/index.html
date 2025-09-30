@@ -1,11 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ruba Store</title>
-</head>
-<body>
-    
-</body>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "lime-custom": "#FAE268",
+              "green-custom": "#2e7d32",
+              "lime-light": "#F9FFD7",
+              "faq-background": "#fcffec",
+            },
+            fontFamily: {
+              montserrat: ["Montserrat", "sans-serif"],
+              roboto: ["Roboto", "sans-serif"],
+              poppins: ["Poppins", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <nav
+      class="flex w-full h-[60px] bg-[#fff] items-center justify-between p-10 gap-20 border-b border-gray-700"
+    >
+      <h1 class="text-center font-bold text-xl font-montserrat">Ruba Store</h1>
+      <ul class="flex items-start justify-between gap-5">
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Best Products</a></li>
+        <li><a href="#">Favorites</a></li>
+        <li><a href="#">About Us</a></li>
+      </ul>
+      <div class="flex justify-between w-[160px]">
+        <button class="w-10">
+          <img src="../images/cart-icon.png" alt="" />
+        </button>
+        <button class="flex justify-between items-center">
+          Log out
+          <img src="../images/arrow.png" alt="" class="w-10 rotate-90" />
+        </button>
+      </div>
+    </nav>
+    <!-- ربا -->
+
+    <div class="w-full flex justify-between items-center bg-gray-100">
+      <div
+        class="w-full p-10 gap-10 flex justify-between items-center flex-col"
+      >
+        <!-- card -->
+        <div class="flex justify-start items-center w-full bg-[#fff]">
+          <div class="w-[300px]">
+            <img src="../images/bag3.jpg" alt="" />
+          </div>
+          <div
+            class="flex justify-between items-start flex-col w-full gap-5 p-5"
+          >
+            <div class="flex justify-between items-start w-full">
+              <h3 class="font-bold text-lg">nnadsgfdhgfh</h3>
+              <img src="../images/delete-icon.svg" alt="" class="w-[30px]" />
+            </div>
+            <p class="font-normal text-lg text-gray-600">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
+              possimus corrupti
+            </p>
+            <div class="flex justify-end items-start w-full gap-5">
+              <div class="flex justify-between items-center gap-3">
+                <button
+                  class="text-2xl bg-gray-200 w-[30px] h-[30px] rounded-full flex justify-center items-center"
+                >
+                  -
+                </button>
+                <p class="font-bold text-2xl">1</p>
+                <button
+                  class="text-2xl bg-gray-200 w-[30px] h-[30px] rounded-full flex justify-center items-center"
+                >
+                  +
+                </button>
+              </div>
+              <p class="font-bold text-2xl text-green-600">$45.8</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-start items-center w-full bg-[#fff]">
+          <div class="w-[300px]">
+            <img src="../images/bag3.jpg" alt="" />
+          </div>
+          <div
+            class="flex justify-between items-start flex-col w-full gap-5 p-5"
+          >
+            <div class="flex justify-between items-start w-full">
+              <h3 class="font-bold text-lg">nnadsgfdhgfh</h3>
+              <img src="../images/delete-icon.svg" alt="" class="w-[30px]" />
+            </div>
+            <p class="font-normal text-lg text-gray-600">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
+              possimus corrupti
+            </p>
+            <div class="flex justify-end items-start w-full gap-5">
+              <div class="flex justify-between items-center gap-3">
+                <button
+                  class="text-2xl bg-gray-200 w-[30px] h-[30px] rounded-full flex justify-center items-center"
+                >
+                  -
+                </button>
+                <p class="font-bold text-2xl">1</p>
+                <button
+                  class="text-2xl bg-gray-200 w-[30px] h-[30px] rounded-full flex justify-center items-center"
+                >
+                  +
+                </button>
+              </div>
+              <p class="font-bold text-2xl text-green-600">$45.8</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="w-full p-10 gap-10 flex justify-between items-center flex-Col"
+      >
+        <div class="flex justify-between items-start flex-col bg-[#fff] p-5">
+          <div class="flex justify-between items-center w-full pb-5">
+            <p class="font-bold text-lg">Subtotal</p>
+            <p class="font-bold text-2xl text-green-600">$456.8</p>
+          </div>
+          <p class="font-normal text-lg text-gray-600">
+            Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.
+          </p>
+
+          <button
+            class="font-bold text-lg w-full bg-black px-10 py-3 border-2 rounded-lg font-semibold text-[#fff] mt-[50px] hover:bg-[#fbcfe8] hover:text-[#000] text-center"
+          >
+            Pay Now
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="">
+      <div
+        class="bg-[#fbcfe8] flex justify-between items-center flex-col py-[100px]"
+      >
+        <p class="font-semibold text-3xl pt-3 pb-5">
+          Subscribe to get offers in your inbox
+        </p>
+        <p class="font-normal text-md pb-5 text-gray-500">
+          Lorem ipsum dolor sit amet, adipiscing elit sed do eiusmod condimentum
+        </p>
+        <ul class="flex items-start justify-between gap-5">
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Best Products</a></li>
+          <li><a href="#">Favorites</a></li>
+          <li><a href="#">About Us</a></li>
+        </ul>
+      </div>
+      <div
+        class="bg-black h-[70px] text-[#fff] flex items-center justify-center"
+      >
+        <p>Copyright © 2025 T-Shirts Store | Powered by Ruba Qeshta</p>
+      </div>
+    </footer>
+  </body>
 </html>
