@@ -92,6 +92,12 @@ const renderCards = () => {
     const cardLink = document.createElement("a");
     cardContent.appendChild(cardLink);
     cardLink.href = "../product_page/index.html";
+    const id = product.id;
+    let clickedId = 0;
+    cardLink.addEventListener("click", () => {
+      clickedId = id;
+      localStorage.setItem("clickedId", JSON.stringify(clickedId));
+    });
     cardLink.appendChild(cardTitle);
 
     const cardOldPrice = document.createElement("p");
