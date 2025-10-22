@@ -35,6 +35,7 @@ addProductform.addEventListener("submit", (e) => {
     category,
     Content,
     id: Date.now(),
+    isFavorite: false,
   };
 
   products.push(product);
@@ -46,11 +47,16 @@ addProductform.addEventListener("submit", (e) => {
 
 const cards = document.getElementById("cards");
 
-const renderCards = () => {
+const renderProductsCount = () => {
+  const productsCount = document.getElementById("productsCount");
   const productsArr = Array.from(products);
-  productsArr.forEach((product) => {
-    const card = document.createElement("div");
+  productsCount.textContent = `${productsArr.length} products`;
+};
 
+const renderCards = () => {
+  const storedProducts = JSON.parse(localStorage.getItem("products")) || [];
+  storedProducts.forEach((product) => {
+    const card = document.createElement("div");
     card.classList.add(
       "flex",
       "flex-col",
@@ -70,7 +76,6 @@ const renderCards = () => {
     cardImg.classList.add("h-[350px]", "w-full", "object-cover");
     cardImg.src = product.imgProduct;
     cardImg.alt = "Bag";
-
     cardImgContainer.appendChild(cardImg);
 
     const cardBody = document.createElement("div");
@@ -89,16 +94,15 @@ const renderCards = () => {
     const cardTitle = document.createElement("p");
     cardTitle.classList.add("font-semibold", "text-lg", "pb-3", "pt-5");
     cardTitle.textContent = product.title;
+
     const cardLink = document.createElement("a");
-    cardContent.appendChild(cardLink);
     cardLink.href = "../product_page/index.html";
-    const id = product.id;
-    let clickedId = 0;
-    cardLink.addEventListener("click", () => {
-      clickedId = id;
-      localStorage.setItem("clickedId", JSON.stringify(clickedId));
-    });
     cardLink.appendChild(cardTitle);
+    cardContent.appendChild(cardLink);
+
+    cardLink.addEventListener("click", () => {
+      localStorage.setItem("clickedId", JSON.stringify(product.id));
+    });
 
     const cardOldPrice = document.createElement("p");
     cardOldPrice.classList.add(
@@ -107,20 +111,18 @@ const renderCards = () => {
       "text-red-600",
       "line-through"
     );
-    cardContent.appendChild(cardOldPrice);
     cardOldPrice.textContent = "$495";
+    cardContent.appendChild(cardOldPrice);
 
     const cardNewPrice = document.createElement("p");
     cardNewPrice.classList.add("text-lg", "font-medium", "text-green-600");
-    cardContent.appendChild(cardNewPrice);
     cardNewPrice.textContent = product.price;
+    cardContent.appendChild(cardNewPrice);
 
-    // 1. إنشاء الزر
     const button = document.createElement("button");
     button.classList.add("favoriteBtn", "focus:outline-none");
 
-    // 2. إنشاء عنصر SVG
-    let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
     svg.setAttribute("fill", "none");
     svg.setAttribute("viewBox", "0 0 24 24");
@@ -134,7 +136,7 @@ const renderCards = () => {
       "duration-300"
     );
 
-    let path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
     path.setAttribute("stroke-linecap", "round");
     path.setAttribute("stroke-linejoin", "round");
     path.setAttribute("stroke-width", "2");
@@ -147,11 +149,36 @@ const renderCards = () => {
     button.appendChild(svg);
     cardBody.appendChild(button);
     cardsContainer.appendChild(card);
+
+    const existingProduct = storedProducts.find((p) => p.id === product.id);
+    if (existingProduct?.isFavorite) {
+      svg.setAttribute("fill", "red");
+      svg.classList.add("text-red-600");
+    }
+
+    button.addEventListener("click", () => {
+      let updatedProducts = JSON.parse(localStorage.getItem("products")) || [];
+      let storedProduct = updatedProducts.find((p) => p.id === product.id);
+
+      if (storedProduct) {
+        storedProduct.isFavorite = !storedProduct.isFavorite;
+      } else {
+        storedProduct = { ...product, isFavorite: true };
+        updatedProducts.push(storedProduct);
+      }
+
+      if (storedProduct.isFavorite) {
+        svg.setAttribute("fill", "red");
+        svg.classList.add("text-red-600");
+      } else {
+        svg.setAttribute("fill", "none");
+        svg.classList.remove("text-red-600");
+      }
+
+      localStorage.setItem("products", JSON.stringify(updatedProducts));
+    });
   });
+  renderProductsCount();
 };
 
 renderCards();
-
-const productsCount = document.getElementById("productsCount");
-const productsArr = Array.from(products);
-productsCount.textContent = `${productsArr.length} products`;

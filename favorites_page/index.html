@@ -29,7 +29,9 @@
     <nav
       class="flex w-full h-[60px] bg-[#fff] items-center justify-between p-10 gap-20"
     >
-        <a href="#" class="text-center font-bold text-xl font-montserrat"> Ruba Store<a>
+      <a href="#" class="text-center font-bold text-xl font-montserrat">
+        Ruba Store</a
+      >
       <ul class="flex items-start justify-between gap-5">
         <li><a href="#">Products</a></li>
         <li><a href="#">Best Products</a></li>
@@ -50,83 +52,12 @@
       <div class="text-center mb-6">
         <h3 class="font-bold text-5xl pb-3">Wishlist</h3>
       </div>
-      <div class="flex items-center justify-start w-full gap-5">
-        <div
-          class="flex flex-col items-start justify-between pb-5 basis-[250px] min-h-[400px] border-2"
-        >
-          <div class="overflow-hidden h-[350px] w-full">
-            <img
-              src="../images/bag2.jpg"
-              alt="bag"
-              class="h-[350px] w-full object-cover"
-            />
-          </div>
-
-          <div class="flex items-end justify-between w-full px-5">
-            <div>
-              <p class="font-semibold text-lg pb-3 pt-5">The Bigger Carry-On</p>
-              <p class="text-sm font-medium text-red-600 line-through">$495</p>
-              <p class="text-lg font-medium text-green-600">$395</p>
-            </div>
-
-            <button class="favoriteBtn focus:outline-none">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                class="heartIcon w-6 h-6 text-gray-400 transition-colors duration-300"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0
-                116.364 6.364L12 21.364l-7.682-7.682a4.5 4.5 0 010-6.364z"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div
-          class="flex flex-col items-start justify-between pb-5 basis-[250px] min-h-[400px] border-2"
-        >
-          <div class="overflow-hidden h-[350px] w-full">
-            <img
-              src="../images/bag2.jpg"
-              alt="bag"
-              class="h-[350px] w-full object-cover"
-            />
-          </div>
-
-          <div class="flex items-end justify-between w-full px-5">
-            <div>
-              <p class="font-semibold text-lg pb-3 pt-5">The Bigger Carry-On</p>
-              <p class="text-sm font-medium text-red-600 line-through">$495</p>
-              <p class="text-lg font-medium text-green-600">$395</p>
-            </div>
-
-            <button class="favoriteBtn focus:outline-none">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                class="heartIcon w-6 h-6 text-gray-400 transition-colors duration-300"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0
-                116.364 6.364L12 21.364l-7.682-7.682a4.5 4.5 0 010-6.364z"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
+      <div
+        class="flex items-center justify-start w-full gap-5"
+        id="cards"
+      ></div>
     </div>
+
     <footer class="mt-[50px]">
       <div
         class="bg-[#fbcfe8] flex justify-between items-center flex-col py-[100px]"
@@ -150,5 +81,6 @@
         <p>Copyright © 2025 T-Shirts Store | Powered by Ruba Qeshta</p>
       </div>
     </footer>
+    <script src="favorites.js"></script>
   </body>
 </html>
