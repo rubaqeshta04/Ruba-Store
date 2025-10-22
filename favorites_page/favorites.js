@@ -25,7 +25,7 @@ filteredFavoritesArray.forEach((favoriteItem) => {
   const imgProduct = document.createElement("img");
   imgProduct.classList.add("h-[350px]", "w-full", "object-cover");
   imgContainer.appendChild(imgProduct);
-  imgProduct.src = "../images/bag2.jpg";
+  imgProduct.src = favoriteItem.imgProduc;
 
   const content = document.createElement("div");
   content.classList.add(
