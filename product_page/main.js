@@ -1,13 +1,4 @@
 const renderProduct = (product) => {
-  console.log(
-    "ruba",
-    product,
-    product.id,
-    product.price,
-    product.category,
-    product.Content,
-    product.imgProduct
-  );
   const cardProduct = document.getElementById("cardProduct");
   const card = document.createElement("div");
   card.classList.add(
@@ -117,6 +108,11 @@ const renderProduct = (product) => {
   );
   mainContent.appendChild(cardButton);
   cardButton.textContent = "Add to cart";
+  const cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
+  cardButton.addEventListener("click", () => {
+    cartProducts.push(product);
+    localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
+  });
 };
 
 const clickedId = JSON.parse(localStorage.getItem("clickedId"));
