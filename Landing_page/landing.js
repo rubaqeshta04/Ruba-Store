@@ -1,11 +1,4 @@
-const menuBtn = document.getElementById("menu-btn");
-const mobileMenu = document.getElementById("mobile-menu");
-menuBtn.addEventListener("click", () => {
-  mobileMenu.classList.toggle("hidden");
-});
-
 const products = JSON.parse(localStorage.getItem("products")) || [];
-
 const renderProducts = (container) => {
   const productsArray = Array.from(products).slice(0, 5);
   productsArray.forEach((product) => {

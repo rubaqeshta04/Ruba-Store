@@ -2,7 +2,8 @@ const renderProduct = (product) => {
   const cardProduct = document.getElementById("cardProduct");
 
   const card = document.createElement("div");
-  card.className = "flex flex-col md:flex-row justify-start items-start gap-6 p-4 md:p-10 mb-10 border rounded-md shadow-sm";
+  card.className =
+    "flex flex-col md:flex-row justify-start items-start gap-6 p-4 md:p-10 mb-10 border rounded-md shadow-sm";
 
   // Image Container
   const imgContainer = document.createElement("div");
@@ -15,7 +16,8 @@ const renderProduct = (product) => {
 
   // Content Container
   const content = document.createElement("div");
-  content.className = "w-full md:w-1/2 flex flex-col justify-between px-0 md:px-10 mt-4 md:mt-0";
+  content.className =
+    "w-full md:w-1/2 flex flex-col justify-between px-0 md:px-10 mt-4 md:mt-0";
 
   // Breadcrumb
   const breadcrumb = document.createElement("p");
@@ -56,7 +58,8 @@ const renderProduct = (product) => {
 
   // Button
   const button = document.createElement("button");
-  button.className = "bg-black text-white font-semibold px-6 py-2 rounded hover:bg-[#fbcfe8] hover:text-black transition";
+  button.className =
+    "bg-black text-white font-semibold px-6 py-2 rounded hover:bg-[#fbcfe8] hover:text-black transition";
   button.textContent = "Add to cart";
   button.addEventListener("click", () => {
     const cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
@@ -69,9 +72,7 @@ const renderProduct = (product) => {
   cardProduct.appendChild(card);
 };
 
-// Render product based on clickedId
-const clickedId = JSON.parse(localStorage.getItem("clickedId"));
-const products = JSON.parse(localStorage.getItem("products")) || [];
-products.forEach(product => {
-  if (clickedId == product.id) renderProduct(product);
-});
+const Products = JSON.parse(localStorage.getItem("products")) || [];
+const idProduct = JSON.parse(localStorage.getItem("idProduct")) || [];
+const filteredProduct = Products.filter((Product) => Product.id == idProduct);
+renderProduct(filteredProduct[0]);

@@ -71,11 +71,19 @@ const renderCards = () => {
 
     const cardBody = document.createElement("div");
     cardBody.className = "p-4 flex flex-col gap-2";
-
+    let idProduct = 0;
+    const linkPage = document.createElement('a')
     const cardTitle = document.createElement("p");
     cardTitle.className = "font-semibold text-lg";
+    linkPage.appendChild(cardTitle);
+    linkPage.href = "../product_page/index.html"
+    cardTitle.addEventListener("click", () => {
+    idProduct =  product.id
+    localStorage.setItem("idProduct", JSON.stringify(idProduct));
+    
+    });
+  
     cardTitle.textContent = product.title;
-
     const cardPrice = document.createElement("p");
     cardPrice.className = "font-medium text-green-600 text-lg";
     cardPrice.textContent = `$${product.price}`;
@@ -115,9 +123,10 @@ const renderCards = () => {
       renderCards();
     });
 
-    cardBody.appendChild(cardTitle);
+    cardBody.appendChild(linkPage);
     cardBody.appendChild(cardPrice);
     cardBody.appendChild(favBtn);
+    
 
     card.appendChild(cardImgContainer);
     card.appendChild(cardBody);

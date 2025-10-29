@@ -213,8 +213,16 @@
         </p>
       </div>
     </footer>
-
     <!-- Scripts -->
     <script src="products.js"></script>
+    <!-- Burger Menu Script -->
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const menu = document.getElementById("menu");
+      menuBtn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+        menu.classList.toggle("flex");
+      });
+    </script>
   </body>
 </html>
