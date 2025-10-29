@@ -25,200 +25,249 @@
       };
     </script>
   </head>
-  <body>
+  <body class="font-montserrat bg-gray-50">
+    <!-- 🔹 NAVBAR -->
     <nav
-      class="flex w-full h-[60px] bg-[#fff] items-center justify-between p-10 gap-20 border-b border-gray-700"
+      class="flex flex-wrap w-full bg-white items-center justify-between p-5 md:p-10 border-b border-gray-300 relative"
     >
-      <a href="#" class="text-center font-bold text-xl font-montserrat">
-        Ruba Store</a
+      <!-- Logo -->
+      <a href="#" class="font-bold text-xl md:text-2xl">Ruba Store</a>
+
+      <!-- Burger Button (Visible on mobile) -->
+      <button id="menu-btn" class="block md:hidden focus:outline-none">
+        <svg
+          class="w-7 h-7 text-gray-800"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          ></path>
+        </svg>
+      </button>
+
+      <!-- Menu -->
+      <ul
+        id="menu"
+        class="hidden md:flex flex-col md:flex-row items-center md:gap-5 absolute md:static top-[60px] left-0 w-full md:w-auto bg-white md:bg-transparent shadow md:shadow-none p-5 md:p-0 border-t md:border-none z-50"
       >
-      <ul class="flex items-start justify-between gap-5">
-        <li><a href="../products_page/index.html">Products</a></li>
-        <li><a href="../products_page/index.html">Best Products</a></li>
-        <li><a href="../favorites_page/index.html">Favorites</a></li>
-        <li><a href="#">About Us</a></li>
+        <li class="py-2 md:py-0">
+          <a href="../products_page/index.html">Products</a>
+        </li>
+        <li class="py-2 md:py-0">
+          <a href="../products_page/index.html">Best Products</a>
+        </li>
+        <li class="py-2 md:py-0">
+          <a href="../favorites_page/index.html">Favorites</a>
+        </li>
+        <li class="py-2 md:py-0"><a href="#">About Us</a></li>
       </ul>
-      <div class="flex justify-between w-[160px]">
-        <button class="w-10">
-          <a href="../cart_page/index.html"
-            ><img src="../images/cart-icon.png" alt=""
-          /></a>
-        </button>
-        <button class="flex justify-between items-center">
+
+      <!-- Right Buttons -->
+      <div class="flex justify-between items-center gap-4">
+        <a href="../cart_page/index.html">
+          <img src="../images/cart-icon.png" alt="Cart" class="w-8 md:w-10" />
+        </a>
+        <button
+          class="hidden sm:flex justify-between items-center gap-2 font-medium"
+        >
           Log out
-          <img src="../images/arrow.png" alt="" class="w-10 rotate-90" />
+          <img src="../images/arrow.png" alt="" class="w-6 rotate-90" />
         </button>
       </div>
     </nav>
-    <div class="w-full">
-      <div class="flex justify-between items-start w-full">
-        <div class="w-1/2 px-10 py-5">
-          <h2 class="font-semibold text-4xl w-1/2 pb-5">checkout</h2>
-          <p class="text-lg font-medium pb-3">Shipping information</p>
-          <div class="flex items-center justify-between w-full gap-4">
-            <div
-              class="border border-black py-5 pr-9 pl-[30px] rounded-md focus-within:border-blue-500 transition-colors w-1/2"
-            >
-              <input
-                type="radio"
-                name="Delivery"
-                id="delivery"
-                class="peer focus:ring-0"
-              />
-              <label
-                for="delivery"
-                class="font-medium text-lg peer-focus:text-blue-500 transition-colors"
-              >
-                Delivery
-              </label>
-            </div>
-            <div
-              class="border border-black py-5 pr-9 pl-[30px] rounded-md focus-within:border-blue-500 transition-colors w-1/2"
-            >
-              <input
-                type="radio"
-                name="Delivery"
-                id="pickup"
-                class="peer focus:ring-0"
-              />
-              <label
-                for="pickup"
-                class="font-medium text-lg peer-focus:text-blue-500 transition-colors"
-              >
-                Pick up
-              </label>
-            </div>
+
+    <!-- 🔹 MAIN CONTENT -->
+    <div
+      class="w-full flex flex-col lg:flex-row justify-between items-start px-5 md:px-10 py-10 gap-10"
+    >
+      <!-- Left Section -->
+      <div class="w-full lg:w-1/2">
+        <h2 class="font-semibold text-3xl md:text-4xl pb-5">Checkout</h2>
+        <p class="text-lg font-medium pb-3">Shipping information</p>
+
+        <!-- Delivery Type -->
+        <div
+          class="flex flex-col sm:flex-row items-center justify-between w-full gap-4"
+        >
+          <div
+            class="border border-black py-5 pr-9 pl-[30px] rounded-md w-full sm:w-1/2"
+          >
+            <input
+              type="radio"
+              name="Delivery"
+              id="delivery"
+              class="peer focus:ring-0"
+            />
+            <label for="delivery" class="font-medium text-lg">Delivery</label>
+          </div>
+          <div
+            class="border border-black py-5 pr-9 pl-[30px] rounded-md w-full sm:w-1/2"
+          >
+            <input
+              type="radio"
+              name="Delivery"
+              id="pickup"
+              class="peer focus:ring-0"
+            />
+            <label for="pickup" class="font-medium text-lg">Pick up</label>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <form class="mt-10">
+          <div class="flex flex-col gap-5">
+            <label for="name">Your name</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter your name"
+              class="px-2 py-[7px] w-full border-2 border-gray-500 rounded-md"
+            />
+            <label for="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              class="px-2 py-[7px] w-full border-2 border-gray-500 rounded-md"
+            />
+            <label for="phone">Phone</label>
+            <input
+              type="number"
+              name="phone"
+              placeholder="Enter your number"
+              class="px-2 py-[7px] w-full border-2 border-gray-500 rounded-md"
+            />
+            <label for="country">Country</label>
+            <input
+              type="text"
+              name="country"
+              placeholder="Enter your Country"
+              class="px-2 py-[7px] w-full border-2 border-gray-500 rounded-md"
+            />
           </div>
 
-          <form>
-            <div class="flex justify-start items-start flex-col gap-5 pt-10">
-              <label for="name"> your name </label>
+          <!-- City / State / ZIP -->
+          <div
+            class="flex flex-col md:flex-row justify-between w-full py-5 gap-5"
+          >
+            <div class="flex flex-col w-full md:w-1/3 gap-2">
+              <label for="City">City</label>
               <input
                 type="text"
-                name="name"
-                placeholder="Enter your name"
-                class="px-2 py-[7px] w-full border-2 border-gray-500 rounded-md"
+                name="City"
+                placeholder="Enter City"
+                class="px-2 py-[7px] border-2 border-gray-500 rounded-md"
               />
-              <label for="email">Email</label>
+            </div>
+            <div class="flex flex-col w-full md:w-1/3 gap-2">
+              <label for="State">State</label>
               <input
-                type="email"
-                name="email"
-                placeholder="Enter your email"
-                class="px-2 py-[7px] w-full border-2 border-gray-500 rounded-md"
+                type="text"
+                name="State"
+                placeholder="Enter State"
+                class="px-2 py-[7px] border-2 border-gray-500 rounded-md"
               />
-              <label for="phone">phone</label>
+            </div>
+            <div class="flex flex-col w-full md:w-1/3 gap-2">
+              <label for="ZIP code">ZIP code</label>
               <input
                 type="number"
-                name="phone"
-                placeholder="Enter your number"
-                class="px-2 py-[7px] w-full border-2 border-gray-500 rounded-md"
+                name="ZIP code"
+                placeholder="Enter ZIP code"
+                class="px-2 py-[7px] border-2 border-gray-500 rounded-md"
               />
-              <label for="country">Country</label>
-              <input
-                type="text"
-                name="country"
-                placeholder="Enter your Country"
-                class="px-2 py-[7px] w-full border-2 border-gray-500 rounded-md"
-              />
-            </div>
-            <div class="flex justify-start items-start w-full py-5 pr-10 gap-5">
-              <div class="flex flex-col w-1/3 gap-2">
-                <label for="City">City</label>
-                <input
-                  type="text"
-                  name="City"
-                  placeholder="Enter City"
-                  class="px-2 py-[7px] border-2 border-gray-500 rounded-md"
-                />
-              </div>
-              <div class="flex flex-col w-1/3 gap-2">
-                <label for="State">State</label>
-                <input
-                  type="text"
-                  name="State"
-                  placeholder="Enter State"
-                  class="px-2 py-[7px] border-2 border-gray-500 rounded-md"
-                />
-              </div>
-              <div class="w-1/3 flex-col flex gap-2">
-                <label for="ZIP code">ZIP code</label>
-                <input
-                  type="number"
-                  name="ZIP code"
-                  placeholder="Enter ZIP code"
-                  class="px-2 py-[7px] border-2 border-gray-500 rounded-md"
-                />
-              </div>
-            </div>
-            <input type="checkbox" name="Delivery" id="" />
-            <label for="Delivery"
-              >I have read and agree to the terms and polices</label
-            >
-          </form>
-        </div>
-
-        <div
-          class="w-1/2 px-10 py-[75px] border-l-2 border-gray-400 h-[900px] bg-gray-100"
-        >
-          <p class="text-lg font-medium pb-3">Review your cart</p>
-          <div
-            class="gap-5 flex justify-start items-start flex-col h-64 overflow-y-auto"
-            id="checkoutCart"
-          ></div>
-          <div
-            class="flex justify-between items-start w-full py-[100px] flex-col"
-          >
-            <div class="flex justify-between items-start w-full pb-3">
-              <p class="text-base font-medium text-gray-500">Subtotal</p>
-              <p class="font-semibold text-lg" id="Subtotal"></p>
-            </div>
-            <div class="flex justify-between items-start w-full pb-3">
-              <p class="text-base font-medium text-gray-500">Shipping</p>
-              <p class="font-semibold text-lg">$5.00</p>
-            </div>
-            <div class="flex justify-between items-start w-full pb-3">
-              <p class="text-base font-medium text-gray-500">Discount</p>
-              <p class="font-semibold text-lg">$0.0</p>
-            </div>
-            <div class="flex justify-between items-start w-full pb-3">
-              <p class="font-bold text-lg">Total</p>
-              <p class="font-semibold text-lg" id="Total"></p>
             </div>
           </div>
 
-          <button
-            class="font-bold text-lg w-full bg-black px-10 py-3 border-2 rounded-lg font-semibold text-[#fff] mt-[50px] hover:bg-[#fbcfe8] hover:text-[#000] text-center"
-          >
-            Pay Now
-          </button>
+          <div class="flex items-center gap-2">
+            <input type="checkbox" name="agree" id="agree" />
+            <label for="agree" class="text-sm"
+              >I have read and agree to the terms and policies</label
+            >
+          </div>
+        </form>
+      </div>
+
+      <!-- Right Section -->
+      <div
+        class="w-full lg:w-1/2 border-t-2 lg:border-t-0 lg:border-l-2 border-gray-300 lg:pl-10 bg-gray-100 p-5 md:p-10"
+      >
+        <p class="text-lg font-medium pb-3">Review your cart</p>
+
+        <div
+          class="gap-5 flex flex-col h-64 overflow-y-auto bg-white p-4 rounded-lg"
+          id="checkoutCart"
+        ></div>
+
+        <div class="flex flex-col w-full py-10 gap-3">
+          <div class="flex justify-between">
+            <p class="text-base text-gray-500">Subtotal</p>
+            <p class="font-semibold" id="Subtotal">$456.8</p>
+          </div>
+          <div class="flex justify-between">
+            <p class="text-base text-gray-500">Shipping</p>
+            <p class="font-semibold">$5.00</p>
+          </div>
+          <div class="flex justify-between">
+            <p class="text-base text-gray-500">Discount</p>
+            <p class="font-semibold">$0.00</p>
+          </div>
+          <div class="flex justify-between border-t pt-3">
+            <p class="font-bold text-lg">Total</p>
+            <p class="font-semibold text-lg" id="Total">$461.8</p>
+          </div>
         </div>
+
+        <button
+          class="font-bold text-lg w-full bg-black px-10 py-3 border-2 rounded-lg text-white mt-5 hover:bg-pink-200 hover:text-black transition-all"
+        >
+          Pay Now
+        </button>
       </div>
     </div>
 
-    <footer class="">
-      <div
-        class="bg-[#fbcfe8] flex justify-between items-center flex-col py-[100px]"
-      >
-        <p class="font-semibold text-3xl pt-3 pb-5">
+    <!-- 🔹 FOOTER -->
+    <footer class="mt-10">
+      <div class="bg-[#fbcfe8] flex flex-col items-center py-10 md:py-20 gap-4">
+        <p class="font-semibold text-2xl sm:text-3xl text-center">
           Subscribe to get offers in your inbox
         </p>
-        <p class="font-normal text-md pb-5 text-gray-500">
+        <p class="text-sm sm:text-base text-gray-500 text-center max-w-md">
           Lorem ipsum dolor sit amet, adipiscing elit sed do eiusmod condimentum
         </p>
-        <ul class="flex items-start justify-between gap-5">
-          <li><a href="#">Products</a></li>
-          <li><a href="#">Best Products</a></li>
-          <li><a href="#">Favorites</a></li>
-          <li><a href="#">About Us</a></li>
+        <ul class="flex flex-wrap justify-center gap-4">
+          <li><a href="#" class="hover:text-pink-500">Products</a></li>
+          <li><a href="#" class="hover:text-pink-500">Best Products</a></li>
+          <li><a href="#" class="hover:text-pink-500">Favorites</a></li>
+          <li><a href="#" class="hover:text-pink-500">About Us</a></li>
         </ul>
       </div>
+
+      <!-- الجزء السفلي -->
       <div
-        class="bg-black h-[70px] text-[#fff] flex items-center justify-center"
+        class="bg-black flex items-center justify-center text-white text-center h-[70px] px-4"
       >
-        <p>Copyright © 2025 T-Shirts Store | Powered by Ruba Qeshta</p>
+        <p class="text-sm sm:text-base">
+          Copyright © 2025 T-Shirts Store | Powered by Ruba Qeshta
+        </p>
       </div>
     </footer>
 
+    <!-- 🔹 Script -->
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const menu = document.getElementById("menu");
+      menuBtn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+        menu.classList.toggle("flex");
+      });
+    </script>
     <script src="checkout.js"></script>
   </body>
 </html>

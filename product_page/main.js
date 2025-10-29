@@ -1,123 +1,78 @@
 const renderProduct = (product) => {
   const cardProduct = document.getElementById("cardProduct");
+
   const card = document.createElement("div");
-  card.classList.add(
-    "w-full",
-    "flex",
-    "justify-start",
-    "items-start",
-    "p-10",
-    "h-[700px]",
-    "mb-[100px]",
-    "gap-10"
-  );
-  cardProduct.appendChild(card);
+  card.className =
+    "flex flex-col md:flex-row justify-start items-start gap-6 p-4 md:p-10 mb-10 border rounded-md shadow-sm";
 
+  // Image Container
   const imgContainer = document.createElement("div");
-  imgContainer.classList.add("w-1/2", "overflow-hidden");
-  card.appendChild(imgContainer);
-
+  imgContainer.className = "w-full md:w-1/2 overflow-hidden";
   const img = document.createElement("img");
   img.src = product.imgProduct;
+  img.className = "w-full h-64 md:h-[500px] object-cover rounded-md";
   imgContainer.appendChild(img);
-  img.classList.add("h-[700px]");
+  card.appendChild(imgContainer);
 
-  const cardContent = document.createElement("div");
-  cardContent.classList.add(
-    "w-1/2",
-    "px-10",
-    "flex",
-    "justify-between",
-    "flex-col",
-    "items-start",
-    "h-[700px]",
-    "py-[70px]"
-  );
+  // Content Container
+  const content = document.createElement("div");
+  content.className =
+    "w-full md:w-1/2 flex flex-col justify-between px-0 md:px-10 mt-4 md:mt-0";
 
-  const mainContent = document.createElement("div");
-  cardContent.appendChild(mainContent);
-  card.appendChild(mainContent);
+  // Breadcrumb
+  const breadcrumb = document.createElement("p");
+  breadcrumb.className = "text-sm text-gray-500 pb-2";
+  breadcrumb.textContent = `All Products / ${product.title}`;
+  content.appendChild(breadcrumb);
 
-  const cardNavigation = document.createElement("p");
-  cardNavigation.classList.add("pb-6");
-  mainContent.appendChild(cardNavigation);
-  cardNavigation.textContent = `All Products/ products/ ${product.title}`;
+  // Title
+  const title = document.createElement("h2");
+  title.className = "text-2xl md:text-4xl font-semibold text-[#5963f8] pb-4";
+  title.textContent = product.title;
+  content.appendChild(title);
 
-  const contentBody = document.createElement("div");
-  contentBody.classList.add("flex", "justify-between", "items-center");
-  mainContent.appendChild(contentBody);
-
-  const cardTitle = document.createElement("p");
-  contentBody.classList.add(
-    "text-4xl",
-    "font-medium",
-    "pb-5",
-    "text-[#5963f8]"
-  );
-  contentBody.appendChild(cardTitle);
-  cardTitle.textContent = product.title;
-
-  const cardPrice = document.createElement("div");
-  cardPrice.classList.add("flex", "justify-between", "items-center", "gap-5");
-  contentBody.appendChild(cardPrice);
-
+  // Price
+  const priceDiv = document.createElement("div");
+  priceDiv.className = "flex items-center gap-4 pb-4";
   const oldPrice = document.createElement("p");
-  oldPrice.classList.add(
-    "text-xl",
-    "font-medium",
-    "text-red-600",
-    "line-through"
-  );
-  cardPrice.appendChild(oldPrice);
+  oldPrice.className = "text-red-600 line-through text-lg md:text-xl";
   oldPrice.textContent = "$495";
-
   const newPrice = document.createElement("p");
-  newPrice.classList.add("text-2xl", "font-medium", "text-green-600");
-  cardPrice.appendChild(newPrice);
+  newPrice.className = "text-green-600 font-medium text-xl md:text-2xl";
   newPrice.textContent = `$${product.price}`;
+  priceDiv.appendChild(oldPrice);
+  priceDiv.appendChild(newPrice);
+  content.appendChild(priceDiv);
 
-  const cardDesc = document.createElement("p");
-  cardDesc.classList.add("text-xl", "font-semibold", "pb-5");
-  mainContent.appendChild(cardDesc);
-  cardDesc.textContent = product.Content;
-  cardDesc.classList.add("text-xl", "font-smibold", "pb-5");
+  // Description
+  const desc = document.createElement("p");
+  desc.className = "text-base md:text-xl font-medium pb-4";
+  desc.textContent = product.Content;
+  content.appendChild(desc);
 
-  const cardCategory = document.createElement("p");
-  cardDesc.classList.add("text-xl", "font-semibold", "pb-5");
-  mainContent.appendChild(cardCategory);
-  cardCategory.textContent = "Category: ";
-  cardCategory.classList.add("text-2xl", "font-smibold", "mb-[70px]");
+  // Category
+  const category = document.createElement("p");
+  category.className = "text-base md:text-lg pb-6";
+  category.innerHTML = `Category: <span class="font-bold">${product.category}</span>`;
+  content.appendChild(category);
 
-  const categorySpan = document.createElement("span");
-  categorySpan.textContent = product.category;
-  categorySpan.classList.add("font-bold");
-  cardCategory.appendChild(categorySpan);
-
-  const cardButton = document.createElement("button");
-  cardButton.classList.add(
-    "bg-black",
-    "px-10",
-    "py-3",
-    "border-2",
-    "rounded-sm",
-    "font-semibold",
-    "text-[#fff]",
-    "mt-[50px]",
-    "hover:bg-[#fbcfe8]",
-    "hover:text-[#000]"
-  );
-  mainContent.appendChild(cardButton);
-  cardButton.textContent = "Add to cart";
-  const cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
-  cardButton.addEventListener("click", () => {
+  // Button
+  const button = document.createElement("button");
+  button.className =
+    "bg-black text-white font-semibold px-6 py-2 rounded hover:bg-[#fbcfe8] hover:text-black transition";
+  button.textContent = "Add to cart";
+  button.addEventListener("click", () => {
+    const cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
     cartProducts.push(product);
     localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
   });
+  content.appendChild(button);
+
+  card.appendChild(content);
+  cardProduct.appendChild(card);
 };
 
-const clickedId = JSON.parse(localStorage.getItem("clickedId"));
-const products = JSON.parse(localStorage.getItem("products"));
-const productsArr = Array.from(products);
-productsArr.forEach(
-  (product) => clickedId == product.id && renderProduct(product)
-);
+const Products = JSON.parse(localStorage.getItem("products")) || [];
+const idProduct = JSON.parse(localStorage.getItem("idProduct")) || [];
+const filteredProduct = Products.filter((Product) => Product.id == idProduct);
+renderProduct(filteredProduct[0]);
